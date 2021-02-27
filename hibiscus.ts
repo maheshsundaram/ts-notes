@@ -12,7 +12,7 @@ type split<S extends string, D extends string> =
       S extends `${infer T}${D}${infer U}` ? [T, ...split<U, D>] :
         [S];
 
-type filter<items extends unknown[], value extends string> =
+type filter<items extends unknown[], value> =
   items extends []
     ? []
     : items extends [infer head, ...infer tail]
