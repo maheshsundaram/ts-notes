@@ -18,6 +18,10 @@ export type cons<item, list extends unknown[] = []> = list extends []
   ? [item]
   : [item, ...list];
 
+export type len<list extends unknown[]> = list["length"];
+
+export type eq<a, b> = a extends b ? (b extends a ? true : false) : false;
+
 type t1 = cons<cons<"blue", ["green", "red"]>, ["one", "two", "three"]>;
 // type t1 = [["blue", "green", "red"], "one", "two", "three"]
 
