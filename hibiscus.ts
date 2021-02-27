@@ -1,27 +1,16 @@
+type list = `(${string})`
+
 type concat<T extends unknown[], D extends string> =
     T extends [] ? '' :
       T extends [string] ? `${T[0]}` :
         T extends [string, ...infer U] ? `${T[0]}${D}${concat<U, D>}` :
           string;
 
-type left_paren = `(`;
-type right_paren = `)`;
-type list = concat<[left_paren,string,right_paren], ''>;
-
-type quote = `'`;
-type quote_list = concat<[quote,left_paren,string,right_paren], ''>;
-
 type split<S extends string, D extends string> =
   string extends S ? string[] :
     S extends '' ? [] :
       S extends `${infer T}${D}${infer U}` ? [T, ...split<U, D>] :
         [S];
-
-type split_left_paren<s extends string> = split<s, left_paren>;
-type split_right_paren<s extends string> = split<s, right_paren>;
-
-type atoms<l extends list> =
-  split<concat<split_left_paren<concat<split_right_paren<l>, "">>, "">, " ">;
 
 type filter<items extends unknown[], value extends string> =
   items extends []
@@ -31,6 +20,9 @@ type filter<items extends unknown[], value extends string> =
         ? filter<tail, value>
         : [head, ...filter<tail, value>]
       : items; 
+
+type atoms<l extends list> =
+  split<concat<split<concat<split<l, `)`>, "">, `(`>, "">, " ">;
 
 /// ---
 
@@ -50,4 +42,8 @@ type b = cdr<t>; // type b = "(two three)"
 
 type c = cdr<b>; // type c = "(three)"
 
-type d = cons<a, b> // type d = "(one two three)"
+type d = cdr<c> // type f = "()"
+
+type e = cons<cons<a, b>, cons<a,b>>; // type d = "((one two three) one two three)"
+
+type f = car<e> // TODO: type e = "(one two three)"
