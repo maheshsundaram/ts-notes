@@ -23,9 +23,14 @@ type split_right_paren<s extends string> = split<s, right_paren>;
 type atoms<l extends list> =
   split<concat<split_left_paren<concat<split_right_paren<l>, "">>, "">, " ">;
 
-type filter<items extends unknown[], value extends string> = items extends [] ? [] :
-    items extends [infer head, ...infer tail] ?
-    head extends value ? filter<tail, value> : [head, ...filter<tail, value>] : items; 
+type filter<items extends unknown[], value extends string> =
+  items extends []
+    ? []
+    : items extends [infer head, ...infer tail]
+      ? head extends value
+        ? filter<tail, value>
+        : [head, ...filter<tail, value>]
+      : items; 
 
 /// ---
 
