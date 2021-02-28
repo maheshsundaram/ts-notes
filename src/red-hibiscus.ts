@@ -6,9 +6,9 @@ export type car<list extends unknown[]> =
 
 // prettier-ignore
 export type cdr<list extends unknown[]> =
-  list extends [infer _head, ...infer tail]
-    ? tail
-    : list;
+  list extends [infer head] ? head :
+  list extends [infer _head, ...infer tail] ? tail :
+list;
 
 // prettier-ignore
 export type cons<item, list extends unknown[] = []> =

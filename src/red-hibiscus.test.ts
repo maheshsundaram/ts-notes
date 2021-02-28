@@ -30,3 +30,6 @@ type test5 = Test<Equal<expr5, one>>;
 
 type expr6 = cons<one, cons<two, cons<three, []>>>;
 type test6 = Test<Equal<expr6, numbers>>;
+
+type expr7 = cdr<["one"]>;
+type test7 = Test<Equal<expr7, "one">>;
