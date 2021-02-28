@@ -1,7 +1,5 @@
+import { Equal, Test } from "./test-utils";
 import { car, cdr, cons } from "./red-hibiscus";
-
-type Equal<a, b> = a extends b ? (b extends a ? true : false) : false;
-type Test<value extends true> = value;
 
 type blue = "blue";
 type green = "green";
