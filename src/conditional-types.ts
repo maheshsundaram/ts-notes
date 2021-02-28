@@ -1,0 +1,6 @@
+// the input and output of a conditional type are types
+// they're (pure) functions
+//
+// ...infer creates a type variable...
+//
+// ...string extends T...
