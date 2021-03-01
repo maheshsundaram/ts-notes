@@ -3,6 +3,9 @@ import { test, eq } from "./test-utils";
 // https://stackoverflow.com/questions/52489261/typescript-can-i-define-an-n-length-tuple-type
 // https://stackoverflow.com/questions/55127004/how-to-transform-union-type-to-tuple-type
 
+// https://github.com/microsoft/TypeScript/pull/39094
+// variadic tuple types
+
 // prettier-ignore
 type tuple<t, n extends number> =
   // n extends n
