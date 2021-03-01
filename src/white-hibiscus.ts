@@ -24,18 +24,24 @@ type t3 = tokenize<"(car '(one))">
 type t4 = tokenize<"(car '(one two))">
 type t5 = tokenize<"(cdr '())">
 type t6 = tokenize<"(cdr '(one))">
-type t7 = tokenize<"(cdr '(one two))">
+type t7 = tokenize<"(cdr '(one two))">;
+
+type t8 = parse<string>
 
 export type parse<expr extends string> =
+  expr extends `'`? "error: missing atom" :
+  expr extends `'${string}`? expr :
   expr extends `()` ? expr :
-  expr extends `'()` ? expr :
-  expr extends `'${string}` ? expr :
-  expr extends `'(${string})` ? expr :
-  expr extends `(car)` ? expr :
-  expr extends `(cdr)` ? expr :
-  expr extends `(cons)` ? expr :
-  expr extends `(car '())` ? "'()" :
-  expr extends `(cdr '())` ? "'()" :
-  expr extends `(car '(${infer str}))` ? car<split<str, " ">> :
-  expr extends `(cdr '(${infer str}))` ? cdr<split<str, " ">> :
+  expr extends `(${infer e})` ? expr :
+  // expr extends `'` ? expr :
+  // expr extends `'()` ? expr :
+  // expr extends `'${string}` ? expr :
+  // expr extends `'(${string})` ? expr :
+  // expr extends `(car)` ? expr :
+  // expr extends `(cdr)` ? expr :
+  // expr extends `(cons)` ? expr :
+  // expr extends `(car '())` ? "'()" :
+  // expr extends `(cdr '())` ? "'()" :
+  // expr extends `(car '(${infer str}))` ? car<split<str, " ">> :
+  // expr extends `(cdr '(${infer str}))` ? cdr<split<str, " ">> :
 void;
