@@ -12,3 +12,11 @@ type n1 = add<43, 43>;
 
 // 43 is the (current) upperbound, otherwise ts complains that
 // "Type instantiation is excessively deep and possibly infinite."
+
+type Ints = [0, 1, 2];
+
+type IntStrings = {
+  [K in keyof Ints & string as `${K}`]: Ints[K]
+}
+
+type StringToInt<S extends keyof IntStrings> = IntStrings[S]
