@@ -10,3 +10,13 @@
 //
 // "Emulating a 4-Bit Virtual Machine in Typescript"
 // https://gist.github.com/acutmore/9d2ce837f019608f26ff54e0b1c23d6e
+//
+// https://blog.joshuakgoldberg.com/type-system-game-engines/
+//
+// https://github.com/type-challenges/type-challenges
+//
+// https://github.com/g-plane/type-gymnastics
+//
+// https://itnext.io/the-art-of-type-programming-cfd933bdfff7
+//
+// https://github.com/mistlog/typetype
