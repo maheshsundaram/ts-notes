@@ -1,3 +1,5 @@
+// https://github.com/pelotom/type-zoo
+//
 // https://github.com/codemix/ts-sql
 //
 // https://github.com/ronami/meta-typing
@@ -20,3 +22,7 @@
 // https://itnext.io/the-art-of-type-programming-cfd933bdfff7
 //
 // https://github.com/mistlog/typetype
+//
+// "Proof that TypeScript's Type System is Turing Complete"
+// https://gist.github.com/hediet/63f4844acf5ac330804801084f87a6d4
+// https://github.com/microsoft/TypeScript/issues/14833
