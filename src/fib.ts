@@ -1,29 +1,29 @@
-// import { ParseInt, Filter } from "./sea-hibiscus";
-
-export type Ints = [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+type Ints = [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
 type SubtractOne<N extends number> = Ints[N];
 
 // prettier-ignore
-type NumberToTuple<n extends number, tuple extends unknown[] = []> =
-  tuple["length"] extends n
-    ? tuple
-    : NumberToTuple<n, [0, ...tuple]>;
+type NumberToTuple<N extends number, T extends unknown[] = []> =
+  T["length"] extends N
+    ? T
+    : NumberToTuple<N, [0, ...T]>;
 
 // prettier-ignore
-type Add<x extends number, y extends number> =
-  [...NumberToTuple<x>, ...NumberToTuple<y>]["length"];
+type Add<X extends number, Y extends number> =
+  [...NumberToTuple<X>, ...NumberToTuple<Y>]["length"];
 
+// prettier-ignore
 type FibOf<N extends number> = N extends 1
   ? 1
   : N extends 2
-  ? 1
-  : Add<FibOf<SubtractOne<N>>, FibOf<SubtractOne<SubtractOne<N>>>>;
+    ? 1
+    : Add<FibOf<SubtractOne<N>>, FibOf<SubtractOne<SubtractOne<N>>>>;
 
-type t1 = FibOf<1>; // 1
-type t2 = FibOf<2>; // 1
-type t3 = FibOf<3>; // 2
-type t4 = FibOf<4>; // 3
-type t5 = FibOf<5>; // 5
-type t6 = FibOf<6>; // 8
-type t7 = FibOf<7>; // 13
+type T1 = FibOf<1>; // 1
+type T2 = FibOf<2>; // 1
+type T3 = FibOf<3>; // 2
+type T4 = FibOf<4>; // 3
+type T5 = FibOf<5>; // 5
+type T6 = FibOf<6>; // 8
+type T7 = FibOf<7>; // 13
+type T8 = FibOf<8>; // 21
