@@ -27,4 +27,4 @@ type P2 = IsPrime<13>; // true
 type P3 = IsPrime<17>; // true
 type P4 = IsPrime<31>; // true
 type P5 = IsPrime<20>; // false
-type P6 = IsPrime<10>; // false
+type P6 = IsPrime<541>; // true
