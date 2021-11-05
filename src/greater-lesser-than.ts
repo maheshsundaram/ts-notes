@@ -1,3 +1,9 @@
+type T1 = IsGreater<225, 220>; // => true
+type T2 = IsLesser<10, 200>; // => true
+
+/*
+ *
+ */
 type LessThan = {
   0: never;
   1: 0;
@@ -11,6 +17,9 @@ type LessThan = {
   9: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 };
 
+/*
+ *
+ */
 type StrToInt = {
   "0": 0;
   "1": 1;
@@ -25,6 +34,9 @@ type StrToInt = {
 }
 
 // prettier-ignore
+/*
+ *
+ */
 type IntToDigits<N extends number, S extends string = `${N}`, D extends number[] = []> =
   S extends ""
     ? D
@@ -35,6 +47,9 @@ type IntToDigits<N extends number, S extends string = `${N}`, D extends number[]
       : [N];
 
 // prettier-ignore
+/*
+ *
+ */
 type IsGreater<
   X extends number,
   Y extends number,
@@ -59,11 +74,10 @@ type IsGreater<
         : "false4"
     : "false5" // greater than nine digits, need to recurse into sections of 9
   
-type T1 = IsGreater<225, 220>;
-
+/*
+ *
+ */
 type IsLesser<X extends number, Y extends number> = IsGreater<Y, X>;
-
-type T2 = IsLesser<10, 200>;
 
 // type Digits = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 // type IntToStr = {
