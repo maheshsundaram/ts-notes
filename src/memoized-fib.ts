@@ -4,23 +4,13 @@ type MemoizedFib<N extends number, List extends number[][] = [[1], [1], [1, 1]]>
     ? 1
     : N extends 2
       ? 1
-      : N extends 3
-        ? 2
-        : List["length"] extends N
-          ? List extends [...infer _, infer T]
-            ? T extends number[]
-              ? T["length"]
-              : never
-            : never 
-          : List extends [...infer H, infer X, infer Y]
-            ? X extends number[]
-              ? Y extends number[]
-                ? H extends number[][]
-                  ? MemoizedFib<N, [...H, X, Y, [...X, ...Y]]>
-                  : never
-                : never
-              : never
-            : never;
+      : List["length"] extends N
+        ? List extends [...infer _, infer T extends number[]]
+          ? T["length"]
+          : never
+        : List extends [...infer H extends number[][], infer X extends number[], infer Y extends number[]]
+          ? MemoizedFib<N, [...H, X, Y, [...X, ...Y]]>
+          : never;
 
 // prettier-ignore
 type Index = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20;
