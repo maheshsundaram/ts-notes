@@ -1,3 +1,9 @@
+// Exhaustive Pattern Matching library
+// https://github.com/gvergnaud/ts-pattern
+//
+// "<Type>Level Typescript"
+// https://type-level-typescript.com/
+//
 // "A menagerie of useful type operators for TypeScript"
 // https://github.com/pelotom/type-zoo
 //
