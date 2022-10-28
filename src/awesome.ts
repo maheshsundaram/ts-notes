@@ -1,3 +1,6 @@
+// Type safe mocking library for TypeScript
+// https://github.com/NiGhTTraX/strong-mock
+//
 // Exhaustive Pattern Matching library
 // https://github.com/gvergnaud/ts-pattern
 //
