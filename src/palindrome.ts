@@ -1,3 +1,5 @@
+import { TestEq } from "./test-utils";
+
 // prettier-ignore
 type IsPalindrome<
   Str extends string,
@@ -22,8 +24,8 @@ type IsPalindrome<
       ? IsPalindrome<Str, T, [...StrTuple, H]>
       : false;
 
-type P1 = IsPalindrome<"aba"> // true
-type P2 = IsPalindrome<"abba"> // true
-type P3 = IsPalindrome<"ababa"> // true
-type P4 = IsPalindrome<"abax"> // false
-type P5 = IsPalindrome<"maheshseham">; //true
+type Test1 = TestEq<IsPalindrome<"aba">, true>;
+type Test2 = TestEq<IsPalindrome<"abba">, true>;
+type Test3 = TestEq<IsPalindrome<"abca">, false>;
+type Test4 = TestEq<IsPalindrome<"ab">, false>;
+type Test5 = TestEq<IsPalindrome<"amanaplanacanalpanama">, true>;
