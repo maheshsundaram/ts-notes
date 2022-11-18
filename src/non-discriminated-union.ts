@@ -2,13 +2,15 @@
 
 type Fruit<F> = F extends string ? { name: F } : never;
 
-type FruitU = Fruit<'papaya' | 'mango'> | (Fruit<'mango'> & { large: true; taste: 'great' });
+type FruitU =
+  | Fruit<"papaya" | "mango">
+  | (Fruit<"mango"> & { large: true; taste: "great" });
 
 const eatFruit = (fruit: FruitU) => {
-  if (fruit.name === 'mango' && 'large' in fruit) {
+  if (fruit.name === "mango" && "large" in fruit) {
     // fruit.taste: "great"
   }
-  if (fruit.name === 'mango' && fruit.large) {
+  if (fruit.name === "mango" && fruit.large) {
     // Property 'large' does not exist on type '{ name: "mango"; }'.
   }
 };
