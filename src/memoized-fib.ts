@@ -5,7 +5,7 @@ type MemoizedFib<N extends number, List extends number[][] = [[1], [1], [1, 1]]>
   N extends (1 | 2)
     ? 1
     : List["length"] extends N
-      ? List extends [...infer _, infer T extends number[]]
+      ? List extends [...number[][], infer T extends number[]]
         ? T["length"]
         : never
       : List extends [...infer H extends number[][], infer X extends number[], infer Y extends number[]]

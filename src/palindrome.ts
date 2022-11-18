@@ -7,7 +7,7 @@ type IsPalindrome<
   StrTuple extends string[] = [],
 > =
   StrBuf extends ""
-    ? StrTuple extends [infer _]
+    ? StrTuple extends [string]
       ? true
       : StrTuple extends [infer H, infer T]
         ? H extends T

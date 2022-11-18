@@ -2,13 +2,13 @@ import { TestEq } from "./test-utils";
 
 // prettier-ignore
 export type Car<List extends unknown[]> =
-  List extends [infer Head, ...infer _]
+  List extends [infer Head, ...unknown[]]
     ? Head
     : List;
 
 // prettier-ignore
 export type Cdr<List extends unknown[]> =
-  List extends [infer _, ...infer Tail]
+  List extends [unknown, ...infer Tail]
     ? Tail
     : List;
 

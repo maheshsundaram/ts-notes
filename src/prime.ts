@@ -9,7 +9,7 @@ type IsPrime<N extends number, T extends unknown[] = [], D extends unknown[] = T
         ? D["length"] extends (1 | 5)
           ? true
           : false
-        : D extends [infer _, infer _, infer _, infer _, infer _, infer _, ...infer Rest]
+        : D extends [number, number, number, number, number, number, ...infer Rest]
           ? IsPrime<N, T, Rest>
           : false
       : IsPrime<N, [...T, 1]>;
