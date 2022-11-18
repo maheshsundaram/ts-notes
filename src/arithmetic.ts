@@ -1,22 +1,11 @@
 // prettier-ignore
-type number_to_tuple<n extends number, tuple extends unknown[] = []> =
-  tuple["length"] extends n
-    ? tuple
-    : number_to_tuple<n, [0, ...tuple]>;
+type NumberToTuple<N extends number, T extends unknown[] = []> =
+  T["length"] extends N
+    ? T
+    : NumberToTuple<N, [0, ...T]>;
 
 // prettier-ignore
-type add<x extends number, y extends number> =
-  [...number_to_tuple<x>, ...number_to_tuple<y>]["length"];
+type Add<x extends number, y extends number> =
+  [...NumberToTuple<x>, ...NumberToTuple<y>]["length"];
 
-type n1 = add<43, 43>;
-
-// 43 is the (current) upperbound, otherwise ts complains that
-// "Type instantiation is excessively deep and possibly infinite."
-
-type Ints = [0, 1, 2];
-
-type IntStrings = {
-  [K in keyof Ints & string as `${K}`]: Ints[K]
-}
-
-type StringToInt<S extends keyof IntStrings> = IntStrings[S]
+type N1 = Add<980, 798>;
